@@ -4,10 +4,11 @@ Projet de Python de premiere année ENSAE
 Renforcement learning 
 
 Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
 
 20/03/2019
 
-let's go :) 
 
 /"""
 

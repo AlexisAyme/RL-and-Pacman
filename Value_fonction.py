@@ -107,9 +107,3 @@ def PointFixe (op,epsilon,n):
         return (Vp,pi_res)
     
     
-class TDlambda :
-    def __init__ (self,ld,env,n_episode):
-        self.m_ld =ld
-        self.m_env=env
-        self.n_ep =n_episode
-        self.gamma =

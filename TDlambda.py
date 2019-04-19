@@ -11,6 +11,7 @@ Hélène Wang
 
 /"""
 
+import numpy as np
 class TDlambda :
     """ TD lamda algorithm using MC at the first read"""
     

@@ -14,7 +14,7 @@ Hélène Wang
 
 import numpy as np 
 
-import class_Environnement.py
+
 
 def norme (X):
     """Donne le carré de la norme euclidienne du vecteur X"""

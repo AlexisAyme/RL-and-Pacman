@@ -15,7 +15,7 @@ from Value_fonction import *
 
 def Graphe2env (M):
     """ A partir d'une matrice adjacente d'un graphe orienté, donne T,A,R pour
-        simuler un env. Par convention l'état 0 est l'état de départ et le n-1 
+        simuler un environnement. Par convention l'état 0 est l'état de départ et l'état n-1 
         celui d'arrivé """
     n= len(M)
     T= np.zeros((n,n,n))
@@ -30,7 +30,7 @@ def Graphe2env (M):
     return T,A,R
 
 def plus_court_chemin (M): 
-    """ retourne le plus court chemin entre 0 et n-1 """
+    """ Retourne le plus court chemin entre 0 et n-1 """
     n=len(M)
     T,A,R = Graphe2env(M)
     VI= Value_iterative(T,A,R,1)    

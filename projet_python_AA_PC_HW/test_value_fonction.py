@@ -13,10 +13,11 @@ import numpy as np
 class RandomTest(unittest.TestCase):
     def test_Value_Fonction (self):
         
-        # definition d'un env simple 
+        # définition d'un environnement simple 
         n=20
-        A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}]
-        R= np.array([[0,-i,-i] for i in range (n)])
+        A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}] # Liste des actions
+        R= np.array([[0,-i,-i] for i in range (n)]) # Matrice des récompenses
+        # Matrice de transition
         T =np.zeros([n,3,n])
         T[n-1,1,n-2]=1
         for i in range (1,n-1):
@@ -25,8 +26,8 @@ class RandomTest(unittest.TestCase):
             T[i,2,i-1]=0.25
             T[i,2,i+1]=0.75
         
-        #execution de la fonction 
-        VI= Value_iterative(T,A,R,1)
+        #exécution de la fonction 
+        VI= Value_iterative(T,A,R,1) 
         V,Pi = VI.V_and_pi_star(0) 
         self.assertEqual (Pi[16] ,1.)
 

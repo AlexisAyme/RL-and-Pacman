@@ -5,6 +5,8 @@ Created on Sat May 11 19:47:23 2019
 @author: aymea
 """
 
+## Test unitaire de Q_learning.
+
 from Q_learning import *
 
 import unittest
@@ -13,10 +15,13 @@ import numpy as np
 
 class RandomTest(unittest.TestCase):
     def test_Q_learning (self):
-        # definition d'un env simple 
+        # definition d'un environnement simple 
         n=20
-        A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}]
+        # Liste des actions
+        A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}] 
+        # Matrice des recompenses
         R= np.array([[0,-i,-i] for i in range (n)])
+        # Matrice de transition
         T =np.zeros([n,3,n])
         T[n-1,1,n-2]=1
         for i in range (1,n-1):

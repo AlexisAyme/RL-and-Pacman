@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """
+Projet de Python de premiere année ENSAE 
+Renforcement learning 
 
+Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
 
-
-"""
+/"""
 
 from Q_learning import *
 

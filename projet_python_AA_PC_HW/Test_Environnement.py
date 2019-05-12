@@ -1,4 +1,15 @@
-## Test unitaire des fonctions de la classe Environnement
+# -*- coding: utf-8 -*-
+"""
+Projet de Python de premiere année ENSAE 
+Renforcement learning 
+
+Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
+
+/"""
+
+""" Test unitaire des fonctions de la classe Environnement """
 
 
 import unittest
@@ -10,11 +21,11 @@ import numpy as np
 
 class Test(unittest.TestCase):
     
-    '''On teste les fonctions de la classe Environnement'''
+    """On teste les fonctions de la classe Environnement"""
     
     def test_environnement(self):
 
-    # definition d'un env simple 
+    # definition d'un environnement simple 
 
         n=20
         A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}]
@@ -33,7 +44,7 @@ class Test(unittest.TestCase):
         
         Env=Environnement(T,R,A,m,gamma)
         
-        # Test de actions_possibles
+        # Test des actions_possibles
         i=np.random.randint(1,n-1)
         a=Env.actions_possibles(i)
         b=Env.actions_possibles(0)

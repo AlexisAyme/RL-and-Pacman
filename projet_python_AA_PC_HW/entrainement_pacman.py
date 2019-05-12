@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 
 
 def graphe(memo,f) :
-    """trace un graphe avec la liste en argument et la médiane flottante"""
+    """Trace un graphe avec la liste en argument et la médiane flottante"""
     iteration = len(memo)
     plt.plot(np.array([i for i in range(iteration)]),memo)
     plt.title("Temps de vie du Pacman en fonction de l'apprentissage ")
@@ -35,7 +35,7 @@ def graphe(memo,f) :
 
 
 def entrainement (QL,iteration):
-    """pour entrainer le pacman"""
+    """Pour entrainer le pacman"""
     memo=np.zeros((iteration))
     for i in range(iteration) :
         
@@ -59,7 +59,7 @@ def entrainement (QL,iteration):
     
 
 def entrainement_filmé(QL,iteration):
-    """donne le jeu (la map) en direct"""
+    """Donne le jeu (la map) en direct"""
     for i in range(iteration) :
         print("===== debut de la partie numero ",i," =====" )
         QL.env.initialiser()
@@ -71,12 +71,8 @@ def entrainement_filmé(QL,iteration):
 
 
 
-
-
-
-
 def entrainement_sequence(QL,n_sequence,l_sequence):
-    """fait plusieurs séquences """
+    """Fait plusieurs séquences """
     memo=np.zeros((n_sequence*l_sequence))
     for i in range(n_sequence):
         for j in range(l_sequence) :
@@ -97,7 +93,7 @@ def entrainement_sequence_kill(QL,n_sequence,l_sequence,kill):
     """L'individu est kill au bout d'un certain temps, la nécessité de cette fonction
     vient d'un problème observé : parfois l'apprentissage est très rapide et le jeu ne se finit 
     pas (comme deux enfants tournant autour d'un piquet, allant toujours à la même vitesse et toujours
-    dans le même sens"""
+    dans le même sens)"""
     memo=np.zeros((n_sequence*l_sequence))
     for i in range(n_sequence):
         for j in range(l_sequence) :

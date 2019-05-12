@@ -15,12 +15,12 @@ Hélène Wang
 import numpy as np
 
 class Environnement :
-    """ Première classe quand l'on va utiliser pour simuler un MDP """
+    """ Première classe quand l'on va utiliser pour simuler un MDP (Markov Decision Process, Processus de décision Markovien) """
     
-    """Les états sont représenté par des entier de 0 à n-1 et les action de 0 à m-1 """
+    """Les états sont représentés par des entiers de 0 à n-1 et les actions de 0 à m-1 """
     
     def  __init__ (self,T,R,A,m,gamma): 
-       """T la matrice de transition, R le vecteur des récompenses et A les ensembles d'action """
+       """T la matrice de transition, R le vecteur des récompenses et A l'ensemble des actions """
        self.m_T = np.copy (T)
        self.m_A = np.copy (A)
        self.m_R = np.copy (R)
@@ -33,7 +33,7 @@ class Environnement :
         
     
     def actions_possibles (self,s):
-        """donne la liste des actions possibles de l'état s"""
+        """donne la liste des actions possibles depuis l'état s"""
         return self.m_A[s]
     
     def est_terminal(self,s):
@@ -41,7 +41,7 @@ class Environnement :
         return (self.m_A[s])=={} or (self.m_A[s])==set()
     
     def etat_suivant (self,s,a):
-        """Retourne l'état suivant s apres l'action a (aléatoire mais suit la proba T)"""
+        """Retourne l'état suivant s après l'action a (aléatoire mais suit la probabilité T)"""
         u=np.random.random()
         som=0
         for i in range(self.m_dim):
@@ -52,12 +52,12 @@ class Environnement :
             
     
     def récompense(self,s,a):
-        """Retourne la récompense suivant s apres l'action a (aléatoire mais suit la proba T)"""
+        """Retourne la récompense suivant s apres l'action a (aléatoire mais suit la probabilité T)"""
         return self.m_R[s,a]
     
     def trajectoire_aléatoire (self,si,k):
-        """donne une trajectoire et les récompenses aleatoire de taille k partant 
-        de si construite en choisissant une action au pif """
+        """donne une trajectoire et les récompenses aléatoires de taille k partant 
+        de si construite en choisissant une action au hasard """
         if k== 0 or self.est_terminal(si) :
             return [(si,0)]
         else :
@@ -70,8 +70,8 @@ class Environnement :
         
     
     def trajectoire_aléatoire2 (self,si):
-        """donne une trajectoire et les récompenses aleatoire partant de si construite
-        en choisissant une action au pif et se terminant
+        """donne une trajectoire et les récompenses aléatoires partant de si construite
+        en choisissant une action au hasard et se terminant
         sur un état terminal"""
         if  self.est_terminal(si) :
             return [(si,0)]

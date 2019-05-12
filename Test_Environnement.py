@@ -8,7 +8,7 @@ from Environnement import *
 import numpy as np
 
 
-class TestEnvironnement(unittest.TestCase):
+class Test(unittest.TestCase):
     
     '''On teste les fonctions de la classe Environnement'''
     

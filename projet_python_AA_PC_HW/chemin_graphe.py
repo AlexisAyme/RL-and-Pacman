@@ -15,8 +15,8 @@ from Value_fonction import *
 
 def Graphe2env (M):
     """ A partir d'une matrice adjacente d'un graphe orienté, donne T,A,R pour
-        simuler un environnement. Par convention l'état 0 est l'état de départ et l'état n-1 
-        celui d'arrivé """
+    simuler un environnement. Par convention l'état 0 est l'état de départ et l'état n-1 
+    celui d'arrivé """
     n= len(M)
     T= np.zeros((n,n,n))
     R= np.zeros((n,n))

@@ -28,7 +28,7 @@ class TDlambda :
         
     
     def choose_next_state (self):
-        
+        """pour choisir l'état suivant"""
         n= len(self.occ)
         s= sum(self.occ)
         tab = np.array([s for i in range(n)])- np.array(self.occ)
@@ -41,9 +41,11 @@ class TDlambda :
         return i
     
     def delta(self,  r, x, xp ) :
+        """différence temporelle"""
         return r + self.gamma*self.V[xp]-self.V[x]
     
     def learn_episode (self,trajectoire):
+        """apprentissage de la trajectoire placée en argument"""
         z = np.zeros(self.dim)   # trace d'élligibilité 
         Vp= self.V
         for (r,x,xp) in trajectoire :
@@ -58,6 +60,7 @@ class TDlambda :
         self.V= Vp
         
     def learn (self,n_episode):
+        """idem que learn_episode mais avec plusieurs trajectoires"""
         for k in range (n_episode):
             si= self.choose_next_state()
             self.occ[si]+=1

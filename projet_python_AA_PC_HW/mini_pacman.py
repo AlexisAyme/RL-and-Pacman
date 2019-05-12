@@ -73,7 +73,7 @@ class Mini_Pacman :
         return res
     
     def deplacement_ind (self,a): 
-     """ Deplace le pacman dans la direction a"""
+        """ Deplace le pacman dans la direction a"""
         i,j =self.ind    
         if a==2 :
             self.ind = i,j+1
@@ -126,7 +126,7 @@ class Mini_Pacman :
         return conversion([i,j,k,l],self.n)
     
     def actions_possibles (self,s):
-     """ Retourne les actions possibles pour le pacman """
+        """ Retourne les actions possibles pour le pacman """
         return self.directions_possibles(self.ind)
     
     def récompense (self,s,a):
@@ -134,14 +134,14 @@ class Mini_Pacman :
         return 1.
     
     def etat_suivant(self, s,a):
-     """ L'etat suivant est caracterise par la position du pacman et du fantome sur la carte """
+        """ L'etat suivant est caracterise par la position du pacman et du fantome sur la carte """
         self.deplacement_ind(a)
         self.action_fantome()
         return self.representant()
     
     def est_terminal(self,s):
-     """ Retourne si un etat est terminal ou non, l'etat etant terminal si le pacman et le fantome se 
-     retrouvent à la même position """
+        """ Retourne si un etat est terminal ou non, l'etat etant terminal si le pacman et le fantome se 
+        retrouvent à la même position """
         return self.fantome==self.ind
 
      

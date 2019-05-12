@@ -11,7 +11,7 @@ Hélène Wang
 
 import numpy as np
 class TDlambda :
-    """ TD lamda algorithm using MC at the first read"""
+    """ Algorithme du TD-lambda """
     
     def __init__ (self,ld,env, pi ):
         n= env.m_dim 

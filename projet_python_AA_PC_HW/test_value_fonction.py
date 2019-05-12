@@ -5,6 +5,12 @@ Created on Fri May 10 21:04:23 2019
 @author: aymea
 """
 
+## Test unitaire de Value_Fonction. 
+
+# On définit un environnement simple dans lequel on dispose d'un segment constitué de n cases
+# (numérotées de 0 à n-1). Les états sont les positions sur le segment, les actions possibles sont se tourner à gauche (actions 1)
+# ou bien à droite (action 2), sauf à la dernière case où l'on est obligé de tourner à gauche. L'état 0 est terminal. 
+# La meilleure politique dans ce cas devrait être de toujours se positionner à gauche. On vérifie que le résultat concorde bien.
 
 import unittest
 from Value_fonction import Value_iterative
@@ -15,8 +21,10 @@ class RandomTest(unittest.TestCase):
         
         # définition d'un environnement simple 
         n=20
-        A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}] # Liste des actions
-        R= np.array([[0,-i,-i] for i in range (n)]) # Matrice des récompenses
+        # Liste des actions
+        A =[{}]+[{1,2} for i in range(1,n-1)] + [{1}] 
+        # Matrice des récompenses
+        R= np.array([[0,-i,-i] for i in range (n)]) 
         # Matrice de transition
         T =np.zeros([n,3,n])
         T[n-1,1,n-2]=1

@@ -28,7 +28,7 @@ def conversion(lst,n):
 class Mini_Pacman :
     def __init__(self,M,ind,fantome) :
         """ Constructeur de la classe, M est la carte (0 pour du vide et 1 pour un mur),
-        ind l'emplacement de debut de pacman et fantome celui du fantome """
+        ind l'emplacement de debut du pacman et fantome celui du fantome """
         self.M=M
         self.n=len(M)
         self.ind_in =ind
@@ -37,13 +37,13 @@ class Mini_Pacman :
         self.fantome =fantome
         self.d_fantome= 1
         
-        # Variables pour que ce soit campatible avec la classe Q learning :
+        # Variables pour que ce soit compatible avec la classe Q learning :
         
         self.m_dim = len(M)**4
         self.m_m = 5
     
     def initialiser (self):
-        """ re-initialise le pacman"""
+        """ Re-initialise le pacman"""
         self.ind= self.ind_in
         self.fantome=self.fantome_in 
         self.d_fantome = 1
@@ -69,7 +69,7 @@ class Mini_Pacman :
         return res
     
     def deplacement_ind (self,a): 
-     """ Deplace le pacman suivant la direction a"""
+     """ Deplace le pacman dans la direction a"""
         i,j =self.ind    
         if a==2 :
             self.ind = i,j+1
@@ -100,7 +100,7 @@ class Mini_Pacman :
     
     def action_fantome(self):
         """ Le fantome se deplace dans la meme direction en général et ne change de direction qu'une 
-        fois sur 5 ou lorsqu'il est contraint de la faire à cause d'un mur"""
+        fois sur cinq ou lorsqu'il est contraint de le faire à cause d'un mur"""
         c =self.fantome
         D = self.directions_possibles(c)
         a1= np.random.randint(5)
@@ -116,7 +116,7 @@ class Mini_Pacman :
     
     # Les methodes pour rendre la classe compatible avec Q_learning
     def representant (self):
-        """ Donne l'entier qui represente la position de pacman et du fantome """
+        """ Donne l'entier qui represente la position du pacman et du fantome """
         i,j = self.ind
         k,l= self.fantome
         return conversion([i,j,k,l],self.n)

@@ -7,9 +7,6 @@ Alexis AYME
 Philippe Cantrelle
 Hélène Wang 
 
-20/03/2019
-
-
 /"""
 
 import numpy as np 
@@ -28,7 +25,7 @@ class Value_iterative :
         self.m_gamma = gamma
         
     def f (self, V):
-        """La fonction donnée par l'équation de Bellman sur la value fonction retourne f(V) et la politique choisi"""
+        """La fonction donnée par l'équation de Bellman sur la value fonction retourne f(V) et la politique choisie"""
         n=len(V)
         resV =np.zeros(n)
         pi=np.zeros(n)
@@ -69,10 +66,11 @@ class BellmanOperator :
         self.m_gamma = gamma
     
     def dimension (self):
+        """la dimension"""
         return len(self.m_R)
         
     def TPi_op (self,V,pi):
-        """Operateur de Bellman pour une politique pi"""
+        """Opérateur de Bellman pour une politique pi"""
         n=len(V)
         resV =np.zeros(n)
         for i in range (n):
@@ -97,7 +95,7 @@ class BellmanOperator :
         return (resV,pi)
 
 def PointFixe (op,epsilon,n): 
-        """Itération de op  pour converger vers le point fixe avec une précision epsilon en dimension n"""
+        """Itération de op pour converger vers le point fixe avec une précision epsilon en dimension n"""
         V = np.zeros(n)
         (Vp,pi_res) = op(V)
         while norme (V-Vp)> epsilon :

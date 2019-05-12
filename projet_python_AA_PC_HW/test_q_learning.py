@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat May 11 19:47:23 2019
+Projet de Python de premiere année ENSAE 
+Renforcement learning 
 
-@author: aymea
-"""
+Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
+
+/"""
 
 ## Test unitaire de Q_learning.
 

@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri May 10 21:04:23 2019
+Projet de Python de premiere année ENSAE 
+Renforcement learning 
 
-@author: aymea
-"""
+Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
+
+/"""
 
 ## Test unitaire de Value_Fonction. 
 

@@ -44,17 +44,17 @@ class Test(unittest.TestCase):
         
         Env=Environnement(T,R,A,m,gamma)
         
-        # Test des actions_possibles
+        # Test de actions_possibles
         i=np.random.randint(1,n-1)
         a=Env.actions_possibles(i)
         b=Env.actions_possibles(0)
         c=Env.actions_possibles(n-1)
         self.assertEqual((a,b,c),({1,2},{},{1}))
           
-        # Test de test_est_terminal
+        # Test de est_terminal
         self.assertEqual(Env.est_terminal(0),True)
         
-        #Test de trajectoire_pi2
+        # Test de trajectoire_pi2
         t1=Env.trajectoire_pi2(n-1,p)
         t2=[(1+i-n,n-1-i,n-i-2) for i in range(n-1)]+[(0,0,0)]
         self.assertEqual(t1,t2)

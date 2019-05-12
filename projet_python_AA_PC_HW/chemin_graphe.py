@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri May 10 19:59:27 2019
+Projet de Python de premiere année ENSAE 
+Renforcement learning 
 
-@author: aymea
-"""
+Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
+
+/"""
 
 import numpy as np 
 
 from Value_fonction import * 
 
 def Graphe2env (M):
-    """ A partir d'une matrice adjacente d'un graphe orienté donne T,A,R pour
-        simuler un env, par convention l'état 0 est le départ et le n-1 
-        l'arrivé """
+    """ A partir d'une matrice adjacente d'un graphe orienté, donne T,A,R pour
+        simuler un env. Par convention l'état 0 est l'état de départ et le n-1 
+        celui d'arrivé """
     n= len(M)
     T= np.zeros((n,n,n))
     R= np.zeros((n,n))

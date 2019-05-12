@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat May 11 17:19:23 2019
+Projet de Python de premiere année ENSAE 
+Renforcement learning 
 
-@author: aymea
-"""
+Alexis AYME 
+Philippe Cantrelle
+Hélène Wang 
+
+/"""
 
 
 from Environnement import *

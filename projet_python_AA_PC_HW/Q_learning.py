@@ -12,7 +12,7 @@ import numpy as np
 
 
 class Q_learning : 
-    """ Algorithme de Q learning avec une politique epsilon greedy """
+    """ Algorithme de Q learning avec une politique epsilon greedy (gloutonne) """
     
     def __init__ (self,env,alpha, epsilon ):
         self.alpha= alpha
@@ -27,7 +27,7 @@ class Q_learning :
         
     
     def choose_next_state (self):
-        
+        """pour choisir l'état suivant"""
         n= len(self.occ)
         s= sum(self.occ)
         tab = np.array([s for i in range(n)])- np.array(self.occ)
@@ -41,6 +41,7 @@ class Q_learning :
         return i
     
     def max_action(self,s):
+        """donne l'action qui a la plus grande Q-Valeur"""
         ac=0
         v=- np.inf 
         for a in self.env.actions_possibles(s):
@@ -50,6 +51,7 @@ class Q_learning :
         return  ac
     
     def epsilon_greedy(self,s):
+        """implémente la politique probabiliste greedy"""
         if np.random.rand()< self.epsilon :
             lst= [a for a in self.env.actions_possibles(s)]
             return lst[np.random.randint(len(lst))]
@@ -59,6 +61,7 @@ class Q_learning :
         
 
     def apprendre_action(self,s):
+        """actualise les Q-valeurs"""
         a= self.epsilon_greedy(s)
         sp = self.env.etat_suivant (s,a)
         r = self.env.récompense(s,a)
@@ -70,6 +73,7 @@ class Q_learning :
     
     
     def politique(self):
+        """définit la politique"""
         pi= np.zeros((self.n))
         for i in range (self.n):
             if not( self.env.est_terminal(i)): 
@@ -79,8 +83,9 @@ class Q_learning :
 
             
 class Q_learning2 (Q_learning):
-    """ Q_learning avec comme une politique d'exploration softmax """
+    """ Q_learning avec comme une politique d'exploration softmax (boltzmann)"""
     def softmax(self,s):
+        """pour définir boltzmann"""
         lst=[a for a in self.env.actions_possibles(s)]
         exp = np.exp(np.array([self.Q[s,a] for a in lst]))
         S= np.sum(exp)
@@ -93,6 +98,7 @@ class Q_learning2 (Q_learning):
                 return lst[i ]
             
     def apprendre_action(self,s):
+        """pour actualiser les Q-valeurs"""
         a= self.softmax(s)
         sp = self.env.etat_suivant (s,a)
         r = self.env.récompense(s,a)

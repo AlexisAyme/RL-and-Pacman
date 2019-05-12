@@ -44,7 +44,7 @@ class TDlambda :
     
     def learn_episode (self,trajectoire):
         """apprentissage de la trajectoire placée en argument"""
-        z = np.zeros(self.dim)   # trace d'élligibilité 
+        z = np.zeros(self.dim)   # trace d'éligibilité 
         Vp= self.V
         for (r,x,xp) in trajectoire :
             z*= self.ld*self.gamma
